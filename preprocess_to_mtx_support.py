@@ -9,7 +9,7 @@ from sklearn import preprocessing
 
 def compute_X_10(df=None, feature_index=None, feature=None):
     """
-    Same as compute_X_tfidf but keeps only occurennces of (feature_index, feature)
+    Computes user - item matrix on feature_index and feature
     """
 
     all_users = df[feature_index].values
@@ -51,6 +51,9 @@ def compute_X_10(df=None, feature_index=None, feature=None):
 
 
 def one_hot_encoder_wpop_cols(cat_columns, df_train):
+    """
+    Computes dummified sparse matrix of cat_columns
+    """
 
     df_train['id_amin'] = range(df_train.shape[0])
 
@@ -72,6 +75,9 @@ def one_hot_encoder_wpop_cols(cat_columns, df_train):
 
 
 def normalize(do_all, cont_columns, df_train):
+    """
+    Computes normalized sparse matrix of cont_columns
+    """
 
     if do_all:
         X_cont = df_train[cont_columns]
